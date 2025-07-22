@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troika</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <!-- Фиксированная плашка -->
+    <div class="top-bar">
+        <button class="menu-btn">☰</button>
+        Troika
+    </div>
+
+    <nav class="side-menu">
+        <ul class="menu-list">
+            <li class="menu-item"><a href="{{ url_for('introduction') }}">Главная</a></li>
+            <li class="menu-item"><a href="{{ url_for('character_creation') }}">Создание персонажа</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Оверлей (только для мобильных) -->
+    <div class="content-overlay"></div>
+
+    <!-- Основное содержимое страницы -->
+    <div class="content">
+        <div class="page-content">
+            <div class="content">
+                {{ content | safe }}
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        // Управление меню
+        const menuBtn = document.querySelector('.menu-btn');
+        const sideMenu = document.querySelector('.side-menu');
+        const body = document.body;
+        const overlay = document.querySelector('.content-overlay');
+        
+        // Переключение меню
+        function toggleMenu() {
+            body.classList.toggle('menu-open');
+            overlay.style.display = body.classList.contains('menu-open') ? 'block' : 'none';
+        }
+        
+        // Клик по кнопке меню
+        menuBtn.addEventListener('click', toggleMenu);
+        
+        // Клик по оверлею закрывает меню
+        overlay.addEventListener('click', toggleMenu);
+        
+        // Клик по пункту меню (можно добавить свою логику)
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    toggleMenu(); // Закрываем меню на мобильных после выбора
+                }
+                console.log('Выбран пункт: ' + this.textContent);
+                // Здесь можно добавить переход по разделам
+            });
+        });
+        
+        // Обработчик изменения размера окна
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                // На десктопах убираем класс menu-open если он есть
+                body.classList.remove('menu-open');
+                overlay.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
