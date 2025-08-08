@@ -15,9 +15,25 @@
 
     <nav class="side-menu">
         <ul class="menu-list">
-            <li class="menu-item"><a href="{{ url_for('introduction') }}">Главная</a></li>
-            <li class="menu-item"><a href="{{ url_for('character_creation') }}">Создание персонажа</a></li>
-            <li class="menu-item"><a href="{{ url_for('rolling_the_dice') }}">Создание персонажа</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='introduction') }}">Введение</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='character-creation') }}">Создание персонажа</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='rolling-the-dice') }}">Как бросать кубики?</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='advanced-skills-and-spells') }}">Навыки и заклинания</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='luck') }}">Удача</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='stamina') }}">Выносливость</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='initiative') }}">Инициатива</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='actions') }}">Действия</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='other-concerns') }}">Прочие правила</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='damage') }}">Урон</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='armour') }}">Броня</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='encumbrance') }}">Нагрузка</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='getting-better') }}">Как стать лучше</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='advanced-skill-descriptions') }}">Описания навыков</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='items') }}">Предметы</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='spells') }}">Заклинания</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='enemies') }}">Враги</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='bestiary') }}">Бестиарий</a></li>
+            <li class="menu-item"><a href="{{ url_for('md_page', page_name='tables') }}">Таблицы</a></li>
         </ul>
     </nav>
     
