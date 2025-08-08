@@ -26,5 +26,14 @@ def character_creation():
 
     return render_template("index.html", content=html_content)
 
+@app.route("/rolling-the-dice")
+def rolling_the_dice():
+    with open("content/rolling-the-dice.md", "r", encoding="utf-8") as f:
+        md_text = f.read()
+    
+    html_content = markdown.markdown(md_text)
+
+    return render_template("index.html", content=html_content)
+
 if __name__ == '__main__':
     app.run(debug=True)
