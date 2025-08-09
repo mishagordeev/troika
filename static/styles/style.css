@@ -35,6 +35,11 @@
             margin-right: 20px;
             display: none; /* Скрыто на десктопе по умолчанию */
         }
+
+        .logo {
+            height: 40px; /* Регулируйте по необходимости */
+            margin-right: auto; /* Отталкивает все элементы справа */
+        }   
         
         /* Боковое меню */
         .side-menu {
@@ -97,6 +102,10 @@
         @media (max-width: 768px) {
             .menu-btn {
                 display: block; /* Показываем кнопку на мобильных */
+            }
+
+            .logo {
+                margin-right: initial; /* Сбрасываем auto отступ */
             }
             
             body.menu-open {

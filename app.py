@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, url_for
 import markdown
 from pathlib import Path
 
-app = Flask(__name__, static_folder='styles')
+app = Flask(__name__, static_folder='static')
 
 PAGES_DIR = Path("content")
 
