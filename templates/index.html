@@ -6,6 +6,7 @@
     <title>Troika</title>
     <link rel="stylesheet" href="../static/styles/style.css">
     <base href="/">
+    <script src="../static/js/style.js"></script>
 </head>
 <body>
     <!-- Фиксированная плашка -->
@@ -43,11 +44,9 @@
     <div class="content-overlay"></div>
 
     <!-- Основное содержимое страницы -->
-    <div class="content">
-        <div class="page-content">
-            <div class="content">
+     <div class="page-content">
+        <div class="content">
                 {{ content | safe }}
-            </div>
         </div>
     </div>
     
