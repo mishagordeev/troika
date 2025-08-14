@@ -1,0 +1,22 @@
+{
+  "pages": [
+    {"name": "introduction", "title": "Введение", "order": 1},
+    {"name": "character-creation", "title": "Создание персонажа", "order": 2},
+    {"name": "rolling-the-dice", "title": "Как бросать кубики?", "order": 3},
+    {"name": "luck", "title": "Удача", "order": 4},
+    {"name": "stamina", "title": "Выносливость", "order": 5},
+    {"name": "initiative", "title": "Инициатива", "order": 6},
+    {"name": "actions", "title": "Действия", "order": 7},
+    {"name": "other-concerns", "title": "Прочие правила", "order": 8},
+    {"name": "damage", "title": "Урон", "order": 9},
+    {"name": "armour", "title": "Броня", "order": 10},
+    {"name": "encumbrance", "title": "Нагрузка", "order": 11},
+    {"name": "getting-better", "title": "Как стать лучше", "order": 12},
+    {"name": "advanced-skill-descriptions", "title": "Описания навыков", "order": 13},
+    {"name": "items", "title": "Предметы", "order": 14},
+    {"name": "spells", "title": "Заклинания", "order": 15},
+    {"name": "enemies", "title": "Враги", "order": 16},
+    {"name": "bestiary", "title": "Бестиарий", "order": 17},
+    {"name": "tables", "title": "Таблицы", "order": 18}
+  ]
+}

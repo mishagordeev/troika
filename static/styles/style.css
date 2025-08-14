@@ -156,6 +156,35 @@
             position: relative;
             
         }
+
+        .next-page-button {
+            /* position: absolute; */
+            right: 0;
+            bottom: 0;
+            padding: 16px 32px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .previous-page-button {
+            /* position: absolute; */
+            left: 0;
+            bottom: 0;
+            padding: 16px 32px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }        
+
+        .next-page-button:hover {
+            background-color: #45a049;
         }
         
         h1 {
@@ -180,8 +209,6 @@
         li {
             line-height: 1.6;
         }
-
-
 
         .uppercase-style {
             text-transform: uppercase;
@@ -224,8 +251,12 @@
             height: 18px;
             margin-top: -18px;
         }
+
+        #navigation-buttons {
+            display: flex;
+        }
         
-        /* Медиа-запросы для адаптивности */
+        /* Mobile */
         @media (max-width: 768px) {
             .menu-btn {
                 display: block; /* Показываем кнопку на мобильных */
@@ -249,16 +280,29 @@
 
             .content {
                 padding: 0 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 16px;
             }
-            
+
+            #navigation-buttons {
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 16px;
+            }   
         }
-        
+
+        /* Desktop */
         @media (min-width: 769px) {
             .side-menu {
                 transform: translateX(0);
             }
 
-
+            #navigation-buttons {
+                flex-direction: row;
+                justify-content: space-between;
+            }
         }
         
         /* Оверлей для мобильного меню */
