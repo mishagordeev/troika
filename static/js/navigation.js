@@ -36,11 +36,11 @@ function generatePageNavigation(pages, currentPath) {
     
     if (currentIndex > 0) {
         const prevPage = pages[currentIndex - 1];
-        content.innerHTML += `<button class="previous-page-button" id="previous-page-button"><a href="${prevPage.name}" class="prev">← ${prevPage.title}</a></button>`;
+        content.innerHTML += `<button class="previous-page-button" id="previous-page-button" onclick="window.location.href='${prevPage.name}'"><span class="finger-symbol">☚ </span>${prevPage.title}</button>`;
     }
     
     if (currentIndex < pages.length - 1 && currentIndex !== -1) {
         const nextPage = pages[currentIndex + 1];
-        content.innerHTML += `<button class="next-page-button" id="next-page-button"><a href="${nextPage.name}" class="next">${nextPage.title} →</a></button>`;
+        content.innerHTML += `<button class="next-page-button" id="next-page-button" onclick="window.location.href='${nextPage.name}'">${nextPage.title} <span class="finger-symbol">☛</span></button>`;
     }
 }

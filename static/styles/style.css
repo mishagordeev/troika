@@ -136,16 +136,24 @@
         .menu-item:hover {
             /* background-color: #2c3e50; */
         }
+
+        .finger-symbol {
+            font-size: 18px;
+        }
         
         /* Основное содержимое */
         .content {
             /* height: calc(100vh - 60px); */
             /* overflow-y: auto; */
             transition: margin-left 0.3s;
-            padding-bottom: 50px;
+            
             max-width: 600px;
             margin: 0 auto;
 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 16px;
             
         }
         
@@ -157,34 +165,39 @@
             
         }
 
-        .next-page-button {
-            /* position: absolute; */
-            right: 0;
-            bottom: 0;
+
+
+        #next-page-button {
             padding: 16px 32px;
-            background-color: #4CAF50;
-            color: white;
+            background-color: #FFFF79;
+            color: black;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
             font-size: 18px;
+            border-radius: 5px;
         }
 
-        .previous-page-button {
-            /* position: absolute; */
-            left: 0;
-            bottom: 0;
+        #previous-page-button {
             padding: 16px 32px;
-            background-color: #4CAF50;
-            color: white;
+            background-color: azure;
+            color: black;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
             font-size: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.4) ;
+            border-radius: 5px;
         }        
 
         .next-page-button:hover {
-            background-color: #45a049;
+            -webkit-box-shadow:0px 0px 37px 5px rgba(255,255,121,0.86);
+            -moz-box-shadow: 0px 0px 37px 5px rgba(255,255,121,0.86);
+            box-shadow: 0px 0px 37px 5px rgba(255,255,121,0.86);
+        }
+
+        #previous-page-button:hover {
+            -webkit-box-shadow:0px 0px 37px 5px rgba(180, 180, 180, 0.46);
+            -moz-box-shadow: 0px 0px 37px 5px rgba(180, 180, 180, 0.46);
+            box-shadow: 0px 0px 37px 5px rgba(180, 180, 180, 0.46);        
         }
         
         h1 {
@@ -280,10 +293,7 @@
 
             .content {
                 padding: 0 20px;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                gap: 16px;
+                margin-bottom: 24px;
             }
 
             #navigation-buttons {
@@ -302,6 +312,10 @@
             #navigation-buttons {
                 flex-direction: row;
                 justify-content: space-between;
+            }
+
+            .content {
+                margin-bottom: 24px;
             }
         }
         
