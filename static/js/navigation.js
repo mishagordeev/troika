@@ -24,7 +24,7 @@ function generateMenu(pages) {
 }
 
 function generatePageNavigation(pages, currentPath) {
-    const content = document.querySelector('#navigation-buttons');
+    const NavigationButtonscontainer = document.querySelector('#navigation-buttons-container');
 
     let currentIndex = -1;
     
@@ -34,20 +34,19 @@ function generatePageNavigation(pages, currentPath) {
         }
     });
     
-
     if (currentIndex > 0) {
         const prevPage = pages[currentIndex - 1];
-        content.innerHTML += `<button class="previous-page-button" id="previous-page-button" onclick="window.location.href='${prevPage.name}'"><span class="finger-symbol">☚ </span>${prevPage.title}</button>`;
+        NavigationButtonscontainer.innerHTML += `<button class="navigation-button" id="previous-page-navigation-button" onclick="window.location.href='${prevPage.name}'">☚ ${prevPage.title}</button>`;
     }
     
     if (currentIndex < pages.length - 1 && currentIndex !== 0) {
         const nextPage = pages[currentIndex + 1];
-        content.innerHTML += `<button class="next-page-button" id="next-page-button" onclick="window.location.href='${nextPage.name}'">${nextPage.title} <span class="finger-symbol">☛</span></button>`;
+        NavigationButtonscontainer.innerHTML += `<button class="navigation-button" id="next-page-navigation-button" onclick="window.location.href='${nextPage.name}'">${nextPage.title} ☛</button>`;
     }
 
     if (currentIndex == 0) {
         const nextPage = pages[1];;
-        content.style.justifyContent = "flex-end";
-        content.innerHTML += `<button class="next-page-button" id="next-page-button" onclick="window.location.href='${nextPage.name}'">${nextPage.title} <span class="finger-symbol">☛</span></button>`;
+        NavigationButtonscontainer.style.justifyContent = "flex-end";
+        NavigationButtonscontainer.innerHTML += `<button class="navigation-button" id="next-page-navigation-button" onclick="window.location.href='${nextPage.name}'">${nextPage.title} ☛</button>`;
     }
 }
