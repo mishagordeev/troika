@@ -34,13 +34,20 @@ function generatePageNavigation(pages, currentPath) {
         }
     });
     
+
     if (currentIndex > 0) {
         const prevPage = pages[currentIndex - 1];
         content.innerHTML += `<button class="previous-page-button" id="previous-page-button" onclick="window.location.href='${prevPage.name}'"><span class="finger-symbol">☚ </span>${prevPage.title}</button>`;
     }
     
-    if (currentIndex < pages.length - 1 && currentIndex !== -1) {
+    if (currentIndex < pages.length - 1 && currentIndex !== 0) {
         const nextPage = pages[currentIndex + 1];
+        content.innerHTML += `<button class="next-page-button" id="next-page-button" onclick="window.location.href='${nextPage.name}'">${nextPage.title} <span class="finger-symbol">☛</span></button>`;
+    }
+
+    if (currentIndex == 0) {
+        const nextPage = pages[1];;
+        content.style.justifyContent = "flex-end";
         content.innerHTML += `<button class="next-page-button" id="next-page-button" onclick="window.location.href='${nextPage.name}'">${nextPage.title} <span class="finger-symbol">☛</span></button>`;
     }
 }
