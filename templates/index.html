@@ -4,75 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
-    <title>Troika</title>
+    <title>Тройка!</title>
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
     <link rel="stylesheet" href="../static/styles/style.css">
-    <base href="/">
-    <script src="../static/js/style.js"></script>
 </head>
 <body>
-    <!-- Фиксированная плашка -->
+    <div class="content-overlay"></div>
     <div class="top-bar">
         <button class="menu-btn">☰</button>
-        <img src="../static/images/logo.svg" alt="Логотип" class="logo"
+        <img src="../static/images/logo.svg" alt="Тройка!" class="logo"
      onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgNTAiPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iNTAiIGZpbGw9IiMzMzMiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1zaXplPSIxNiIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxPR088L3RleHQ+PC9zdmc+'">
     </div>
-    
-    <script src="../static/js/navigation.js"></script>
-    
     <nav class="side-menu"></nav>
-    
-    <!-- Оверлей (только для мобильных) -->
-    <div class="content-overlay"></div>
-
-    <!-- Основное содержимое страницы -->
-     <div class="page">
+    <div class="page">
         <div class="content">
             <article>
-                {{ content | safe }}
+                <h1 id="page-title"></h1>
+                <div id="content"></div>
             </article>
             <div id="navigation-buttons-container"></div>
         </div>
     </div>
-    
-    
-    <script>
-        // Управление меню
-        const menuBtn = document.querySelector('.menu-btn');
-        const sideMenu = document.querySelector('.side-menu');
-        const body = document.body;
-        const overlay = document.querySelector('.content-overlay');
-        
-        // Переключение меню
-        function toggleMenu() {
-            body.classList.toggle('menu-open');
-            overlay.style.display = body.classList.contains('menu-open') ? 'block' : 'none';
-        }
-        
-        // Клик по кнопке меню
-        menuBtn.addEventListener('click', toggleMenu);
-        
-        // Клик по оверлею закрывает меню
-        overlay.addEventListener('click', toggleMenu);
-        
-        // Клик по пункту меню (можно добавить свою логику)
-        document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    toggleMenu(); // Закрываем меню на мобильных после выбора
-                }
-                console.log('Выбран пункт: ' + this.textContent);
-                // Здесь можно добавить переход по разделам
-            });
-        });
-        
-        // Обработчик изменения размера окна
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                // На десктопах убираем класс menu-open если он есть
-                body.classList.remove('menu-open');
-                overlay.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>
