@@ -9,8 +9,6 @@ async function initApp() {
     buildNavigationMenu(pages,navigateTo);
     initMobileView();
 
-
-
     let initialPath = window.location.pathname;
     let page = pages.find((p) => p.path === initialPath);
     if (!page) {

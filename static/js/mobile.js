@@ -6,7 +6,6 @@ export function initMobileView() {
 
     if (!menuBtn || !sideMenu || !overlay) return;
 
-    // Переключение меню
     function toggleMenu(forceClose = false) {
         if (forceClose) {
             body.classList.remove('menu-open');
@@ -18,22 +17,18 @@ export function initMobileView() {
         }
     }
 
-    // Клик по кнопке меню
     menuBtn.addEventListener('click', () => toggleMenu());
 
-    // Клик по оверлею закрывает меню
     overlay.addEventListener('click', () => toggleMenu(true));
 
-    // Клик по пункту меню
     document.querySelectorAll('.menu-item').forEach(item => {
         item.addEventListener('click', function() {
             if (window.innerWidth <= 768) {
-                toggleMenu(true); // Закрываем меню на мобильных после выбора
+                toggleMenu(true);
             }
         });
     });
 
-    // Обработчик изменения размера окна
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
             toggleMenu(true);
