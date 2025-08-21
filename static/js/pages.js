@@ -13,6 +13,8 @@ export function loadPage(path) {
     const page = pages.find(p => p.path === path);
     if (!page) return;
 
+    document.title = `Тройка! – ${page.title}`
+
     const title = document.getElementById("page-title");
     const content = document.getElementById("content");
 
