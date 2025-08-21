@@ -40,8 +40,12 @@
             font-family: 'Bainsley', 'Georgia', monospace;
         }
         
+        html {
+            overflow-y: scroll;
+        }
+        
         body {
-            padding-top: 80px;
+            padding-top: 90px;
             transition: margin-left 0.3s;
             background-color: azure;
         }
