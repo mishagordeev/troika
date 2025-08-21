@@ -12,6 +12,7 @@ export function initMobileView() {
             body.classList.remove('menu-open');
             overlay.style.display = 'none';
         } else {
+            sideMenu.scrollTop = 0;
             body.classList.toggle('menu-open');
             overlay.style.display = body.classList.contains('menu-open') ? 'block' : 'none';
         }
