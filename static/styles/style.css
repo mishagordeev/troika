@@ -35,7 +35,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-size: 18px;
             letter-spacing: 0.75px;
             font-family: 'Bainsley', 'Georgia', monospace;
         }
@@ -200,6 +199,7 @@
         p {
             margin-bottom: 15px;
             line-height: 1.6;
+            font-size: 18px;
         }
 
         li {
@@ -222,10 +222,25 @@
 
         table {
             border-collapse: collapse;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             width: 100%;
-
+            table-layout: fixed;
+            margin-top: 8px;
         }
+
+        /* Первый столбец - автоширина */
+        .table-weapons td:first-child,
+        .table-weapons th:first-child {
+            width: auto;
+        }
+
+        /* Остальные столбцы - равная ширина */
+        .table-weapons td:not(:first-child),
+        .table-weapons th:not(:first-child) {
+            width: 9%;
+            text-align: center;
+        }
+
 
         th, td {
             border: 1px solid black;
@@ -293,6 +308,10 @@
             .desktop {
                 display: none;
             }
+
+            .table-weapons {
+                font-size: 16px;
+            }
         }
 
         .content-overlay {
@@ -327,6 +346,10 @@
 
             .desktop {
                 display: block;
+            }
+
+            .table-weapons {
+                font-size: 18px;
             }
         }
         
