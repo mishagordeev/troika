@@ -259,6 +259,12 @@
             text-align: center;
         }
 
+        table.mien td:nth-child(2), 
+        table.mien th:nth-child(2) {
+            width: 100%;
+            text-align: left;
+        }
+
         table.weapons td:first-child, 
         table.weapons th:first-child {
             text-align: center;
@@ -278,6 +284,31 @@
         .table-oops th:first-child, 
         .table-oops th:nth-child(2) {
             text-align: center;
+        }
+
+        table.dragon-flame td:first-child,
+        table.dragon-flame th:first-child {
+            text-align: center;
+        }
+
+        table.dragon-flame td:not(:first-child),
+        table.dragon-flame th:not(:first-child) {
+            width: 9%;
+        }
+
+        .two-column-container {
+            display: flex;
+            gap: 20px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .two-column-container .left {
+            flex: 0 0 calc(60% - 10px);
+        }
+
+        .two-column-container .right {
+            flex: 0 0 calc(40% - 10px);
         }
 
         :target::before {
@@ -359,7 +390,15 @@
                 width: 9%;
             }
 
-
+            .two-column-container {
+                flex-direction: column-reverse;
+                gap: 0;
+            }
+    
+            .two-column-container .left,
+            .two-column-container .right {
+                flex: 0 0 100%;
+            }
         }
 
         .content-overlay {
