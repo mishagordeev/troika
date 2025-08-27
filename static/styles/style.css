@@ -154,6 +154,7 @@
             color: black;
             cursor: pointer;
             border-radius: 5px;
+            font-size: 18px;
         }
 
         #next-page-navigation-button {
@@ -223,24 +224,9 @@
         table {
             border-collapse: collapse;
             margin-bottom: 18px;
-            width: 100%;
-            table-layout: fixed;
             margin-top: 8px;
+            table-layout: fixed;
         }
-
-        /* Первый столбец - автоширина */
-        .table-weapons td:first-child,
-        .table-weapons th:first-child {
-            width: auto;
-        }
-
-        /* Остальные столбцы - равная ширина */
-        .table-weapons td:not(:first-child),
-        .table-weapons th:not(:first-child) {
-            width: 9%;
-            text-align: center;
-        }
-
 
         th, td {
             border: 1px solid black;
@@ -250,14 +236,47 @@
 
         th {
             background-color: #f2f2f2;
+        }     
+
+        table.weapons {
+            width: 100%;
+        }
+
+        table.weapons td:first-child,
+        table.weapons th:first-child {
+            width: auto;
+        }
+
+        table.weapons td:not(:first-child),
+        table.weapons th:not(:first-child) {
+            width: 46px;
             text-align: center;
         }
 
-        td:first-child {
+        table.mien td:first-child, 
+        table.mien th:first-child {
+            width: 46px;
             text-align: center;
         }
 
-        th:first-child {
+        table.weapons td:first-child, 
+        table.weapons th:first-child {
+            text-align: center;
+        }
+
+        table.random-spells td:first-child, 
+        table.random-spells th:first-child {
+            text-align: center;
+        }
+
+        .table-oops td:first-child, 
+        .table-oops th:first-child {
+            max-width: 46px;
+        }       
+
+        .table-oops td:first-child, 
+        .table-oops th:first-child, 
+        .table-oops th:nth-child(2) {
             text-align: center;
         }
 
@@ -305,13 +324,42 @@
                 display: block;
             }
 
+            .mobile-table {
+                display: table;
+            }
+
             .desktop {
                 display: none;
             }
 
-            .table-weapons {
+            table {
                 font-size: 16px;
             }
+
+            th, td {
+                padding: 7px;
+            }
+
+            table.random-spells, table.mien {
+                width: 80%;
+            }
+
+            table.random-spells td:nth-child(1), 
+            table.random-spells th:nth-child(1) {
+                width: 40px;
+            }
+
+            table.mein td:nth-child(1), 
+            table.mein th:nth-child(1) {
+                width: 40px;
+            }
+
+            table.weapons td:not(:first-child),
+            table.weapons th:not(:first-child) {
+                width: 9%;
+            }
+
+
         }
 
         .content-overlay {
@@ -344,12 +392,32 @@
                 display: none;
             }
 
+            
+            .mobile-table {
+                display: none;
+            }
+
             .desktop {
                 display: block;
             }
 
-            .table-weapons {
+            table {
                 font-size: 18px;
+            }
+
+            table.random-spells td:nth-child(1), 
+            table.random-spells th:nth-child(1),
+            table.random-spells td:nth-child(3), 
+            table.random-spells th:nth-child(3) {
+                max-width: 46px;
+                text-align: center;
+            }
+
+            table.random-spells td:nth-child(2), 
+            table.random-spells th:nth-child(2),
+            table.random-spells td:nth-child(4), 
+            table.random-spells th:nth-child(4) {
+                width: 50%;
             }
         }
         
