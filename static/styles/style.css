@@ -115,6 +115,10 @@
             margin-bottom: 40px;
             list-style: none;
         }
+
+        .menu-list li::before {
+            content: "";
+        }
         
         .menu-item {
             padding: 6px 24px;
