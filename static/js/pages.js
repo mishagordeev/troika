@@ -13,6 +13,8 @@ export function loadPage(path) {
     const page = pages.find(p => p.path === path);
     if (!page) return;
 
+    window.scrollTo(0, 0);
+
     document.title = `Тройка! – ${page.title}`
 
     const title = document.getElementById("page-title");
@@ -36,7 +38,6 @@ export function loadPage(path) {
         });
     }
 
-    window.scrollTo(0, 0);
     generatePageNavigation(pages, page);
 }
 
