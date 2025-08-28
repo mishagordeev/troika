@@ -104,6 +104,8 @@
             transition: transform 0.3s;
             z-index: 999;
             overflow-y: auto;
+            padding-top: 20px;
+            padding-bottom: 40px;
         }
         
         .side-menu.active {
@@ -111,8 +113,6 @@
         }
         
         .menu-list {
-            margin-top: 20px;
-            margin-bottom: 40px;
             list-style: none;
         }
 
@@ -391,6 +391,12 @@
         
         /* Mobile */
         @media (max-width: 768px) {
+            .side-menu {
+                height: 100vh;
+                height: 100dvh;
+                padding-bottom: 100px;
+            }
+
             .menu-btn {
                 display: block;
             }
