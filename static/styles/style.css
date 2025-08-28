@@ -49,6 +49,11 @@
             background-color: azure;
         }
 
+        body.no-scroll {
+            overflow: hidden;
+            position: fixed;
+        }
+
         .numbers {
             font-size: 19px;
         }
