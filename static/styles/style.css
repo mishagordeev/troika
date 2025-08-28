@@ -198,13 +198,9 @@
         }
         
         p {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             line-height: 1.6;
             font-size: 18px;
-        }
-
-        li {
-            line-height: 1.6;
         }
 
         .uppercase-style {
@@ -217,7 +213,7 @@
         }
 
         .skills {
-            margin-block-end: 15px;
+            margin-block-end: 16px;
             list-style-type: none;
         }
 
@@ -309,6 +305,72 @@
 
         .two-column-container .right {
             flex: 0 0 calc(40% - 10px);
+        }
+
+        li {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding-left: 12px;
+            position: relative;
+            margin-bottom: 0px;
+        }
+
+        ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0px;
+            top: 0;
+        }
+
+        ul li:last-child {
+            margin-bottom: 16px;
+        }
+
+        ol {
+            list-style: none;
+            counter-reset: my-counter;
+            padding-left: 0;
+        }
+
+        ol li {
+            counter-increment: my-counter;
+            position: relative;
+            padding-left: 22px;
+        }
+
+        ol li::before {
+            content: counter(my-counter) ".";
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            width: 0;
+            text-align: right;
+        }
+
+        ol li:last-child {
+            margin-bottom: 16px;
+        }
+
+        .footnotes li {
+            font-size: 16px;
+            padding-left: 0px;
+        }
+
+        .footnotes li::before {
+            content: "";
+        }
+
+        .footnotes li:last-child {
+            margin-bottom: 26px;
         }
 
         :target::before {
