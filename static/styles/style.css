@@ -275,14 +275,14 @@
             text-align: center;
         }
 
-        .table-oops td:first-child, 
-        .table-oops th:first-child {
+        table.oops td:first-child, 
+        table.oops th:first-child {
             max-width: 46px;
         }       
 
-        .table-oops td:first-child, 
-        .table-oops th:first-child, 
-        .table-oops th:nth-child(2) {
+        table.oops td:first-child, 
+        table.oops th:first-child, 
+        table.oops th:nth-child(2) {
             text-align: center;
         }
 
