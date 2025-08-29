@@ -71,14 +71,12 @@ export function loadPage(path) {
         header.addEventListener('click', function() {
 
             if (content.classList.contains('open')) {
-                console.log("close");
                 content.style.height = content.scrollHeight + 'px';
                 requestAnimationFrame(() => {
                     content.style.height = '0px';
                 });
                 content.classList.remove('open');
             } else {
-                console.log("open");
                 content.classList.add('open');
                 content.style.height = content.scrollHeight + 'px';
                 content.addEventListener('transitionend', () => {
@@ -95,7 +93,6 @@ export function loadPage(path) {
 }
 
 function addSearchField(container, searchLabel) {
-    // Создаем контейнер для поиска
     const searchContainer = document.createElement('div');
     searchContainer.id = 'search_container';
     
@@ -109,21 +106,17 @@ function addSearchField(container, searchLabel) {
 
     const clearBtn = document.createElement('span');
     clearBtn.classList.add('clear-btn');
-    clearBtn.innerHTML = '&times;'; // крестик
+    clearBtn.innerHTML = '&times;';
 
-    // Скрываем крестик по умолчанию
     clearBtn.style.display = 'none';
 
-    // Добавляем элементы
     searchContainer.appendChild(clearBtn);
 
-    // Показываем крестик, если есть текст
     input.addEventListener('input', function () {
         clearBtn.style.display = this.value.length > 0 ? 'block' : 'none';
         filterContent(this.value);
     });
 
-    // Клик по кресту очищает поле
     clearBtn.addEventListener('click', function () {
         input.value = '';
         clearBtn.style.display = 'none';

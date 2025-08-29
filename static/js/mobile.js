@@ -14,8 +14,8 @@ export function initMobileView() {
             body.classList.remove('menu-open');
             overlay.style.display = 'none';
 
-            document.body.classList.remove('no-scroll');
-            document.body.style.top = '';
+            body.classList.remove('no-scroll');
+            body.style.top = '';
             window.scrollTo(0, scrollPosition);
 
         } else {
@@ -24,8 +24,8 @@ export function initMobileView() {
             overlay.style.display = body.classList.contains('menu-open') ? 'block' : 'none';
 
             scrollPosition = window.scrollY;
-            document.body.classList.add('no-scroll');
-            document.body.style.top = `-${scrollPosition}px`;
+            body.classList.add('no-scroll');
+            body.style.top = `-${scrollPosition}px`;
         }
     }
 
