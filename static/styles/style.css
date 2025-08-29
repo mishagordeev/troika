@@ -389,6 +389,53 @@
             margin-top: -18px;
         }
         
+        .expandable-panel {
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .panel-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #ffffff 0%, #ffffff00 100%);
+            color: black;
+            transition: background-color 0.3s ease;
+        }
+
+        .panel-header:hover {
+            background: white;
+        }
+
+        .panel-header.open {
+            background: white;
+        }
+
+        .arrow {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .arrow.open {
+            transform: rotate(180deg);
+        }
+
+        .panel-content {
+            padding: 0;
+            height: 0;
+            overflow: hidden;
+            transition: height 0.5s ease;
+            background: white;
+        }
+
+        .panel-inner {
+            padding: 20px 20px 0 20px;
+        }
+      
         /* Mobile */
         @media (max-width: 768px) {
             .side-menu {

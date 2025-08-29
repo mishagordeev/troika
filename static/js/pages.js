@@ -32,8 +32,15 @@ export function loadPage(path) {
     if (page.sections?.length) {
         page.sections.forEach((section) => {
             const secDiv = document.createElement("div");
-            secDiv.classList.add("section");
-            secDiv.innerHTML = `<h2>${section.title}</h2>${section.content}`;
+                
+            if (section.isExpandablePanel) {
+                secDiv.classList.add("expandable-panel");
+                secDiv.innerHTML = `<div class="panel-header"><h2>${section.title}</h2><span class="arrow">▼</span></div><div class="panel-content"><div class="panel-inner">${section.content}</div></div>`;
+            } else {
+                secDiv.classList.add("section");
+                secDiv.innerHTML = `<h2>${section.title}</h2>${section.content}`;
+            }
+
             content.appendChild(secDiv);
         });
     }
@@ -44,6 +51,35 @@ export function loadPage(path) {
     });
     document.querySelectorAll('em').forEach(em => {
         em.innerHTML = em.innerHTML.replace(/([1-9])/g, '<span class="numbers">$1</span>');
+    });
+    const panels = document.querySelectorAll('.expandable-panel');
+    
+    panels.forEach(panel => {
+        const header = panel.querySelector('.panel-header');
+        const content = panel.querySelector('.panel-content');
+        const arrow = panel.querySelector('.arrow');
+        
+        header.addEventListener('click', function() {
+
+            if (content.classList.contains('open')) {
+                console.log("close");
+                content.style.height = content.scrollHeight + 'px';
+                requestAnimationFrame(() => {
+                    content.style.height = '0px';
+                });
+                content.classList.remove('open');
+            } else {
+                console.log("open");
+                content.classList.add('open');
+                content.style.height = content.scrollHeight + 'px';
+                content.addEventListener('transitionend', () => {
+                    content.style.height = 'auto';
+                }, { once: true });
+            }
+
+            header.classList.toggle('open');
+            arrow.classList.toggle('open');
+        });
     });
     generatePageNavigation(pages, page);
 }
