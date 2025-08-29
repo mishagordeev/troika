@@ -32,13 +32,21 @@ export function loadPage(path) {
     if (page.sections?.length) {
         page.sections.forEach((section) => {
             const secDiv = document.createElement("div");
-                
-            if (section.isExpandablePanel) {
-                secDiv.classList.add("expandable-panel");
-                secDiv.innerHTML = `<div class="panel-header"><h2>${section.title}</h2><span class="arrow">▼</span></div><div class="panel-content"><div class="panel-inner">${section.content}</div></div>`;
+
+            if (section.is_have_search) {
+                addSearchField(secDiv, section.search_label);
             } else {
-                secDiv.classList.add("section");
-                secDiv.innerHTML = `<h2>${section.title}</h2>${section.content}`;
+                if (section.isExpandablePanel) {
+                    secDiv.classList.add("expandable-panel");
+                    secDiv.innerHTML = `<div class="panel-header"><h2>${section.title}</h2><span class="arrow">▼</span></div><div class="panel-content"><div class="panel-inner">${section.content}</div></div>`;
+                } else {
+                    secDiv.classList.add("section");
+                    if (section.is_page_search_ignored) 
+                        secDiv.innerHTML = `<h2 class='page-search-ignored'>${section.title}</h2>${section.content}`; 
+                    else {
+                        secDiv.innerHTML = `<h2>${section.title}</h2>${section.content}`; 
+                    }
+                }
             }
 
             content.appendChild(secDiv);
@@ -52,6 +60,7 @@ export function loadPage(path) {
     document.querySelectorAll('em').forEach(em => {
         em.innerHTML = em.innerHTML.replace(/([1-9])/g, '<span class="numbers">$1</span>');
     });
+
     const panels = document.querySelectorAll('.expandable-panel');
     
     panels.forEach(panel => {
@@ -81,7 +90,66 @@ export function loadPage(path) {
             arrow.classList.toggle('open');
         });
     });
+
     generatePageNavigation(pages, page);
+}
+
+function addSearchField(container, searchLabel) {
+    // Создаем контейнер для поиска
+    const searchContainer = document.createElement('div');
+    searchContainer.id = 'search_container';
+    
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = 'searchInput';
+    input.placeholder = searchLabel;
+
+    searchContainer.appendChild(input);
+    container.prepend(searchContainer);
+
+    const clearBtn = document.createElement('span');
+    clearBtn.classList.add('clear-btn');
+    clearBtn.innerHTML = '&times;'; // крестик
+
+    // Скрываем крестик по умолчанию
+    clearBtn.style.display = 'none';
+
+    // Добавляем элементы
+    searchContainer.appendChild(clearBtn);
+
+    // Показываем крестик, если есть текст
+    input.addEventListener('input', function () {
+        clearBtn.style.display = this.value.length > 0 ? 'block' : 'none';
+        filterContent(this.value);
+    });
+
+    // Клик по кресту очищает поле
+    clearBtn.addEventListener('click', function () {
+        input.value = '';
+        clearBtn.style.display = 'none';
+        filterContent('');
+        input.focus();
+    });
+}
+
+function filterContent(query) {
+    const sections = document.querySelectorAll('#content h2');
+    sections.forEach(h2 => {
+        if (!h2.classList.contains('page-search-ignored')) {
+            const section = h2.closest('.section') || h2.closest('.expandable-panel');
+            if (h2.textContent.toLowerCase().includes(query.toLowerCase())) {
+                section.style.display = '';
+                if (section.classList.contains('expandable-panel')) {
+                    section.style.marginBottom = '15px';
+                }
+            } else {
+                section.style.display = 'none';
+                if (section.classList.contains('expandable-panel')) {
+                    section.style.marginBottom = 0;
+                }
+            }
+        }
+    });
 }
 
 export function navigateTo(path) {

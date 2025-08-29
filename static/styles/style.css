@@ -388,7 +388,35 @@
             height: 18px;
             margin-top: -18px;
         }
-        
+
+        .clear-btn {
+            position: absolute;
+            right: 10px;
+            top: 6px;
+            font-size: 24px;
+            color: #999999;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #search_container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 8px 12px;
+            padding-right: 30px; 
+            font-size: 18px;
+            border: 2px solid rgba(255, 115, 0, 0.4);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            outline: none;
+            background-color: white;
+        }
+
         .expandable-panel {
             border-radius: 8px;
             margin-bottom: 15px;
@@ -416,6 +444,7 @@
         }
 
         .arrow {
+            margin-left: 8px;
             font-size: 16px;
             transition: transform 0.3s ease;
         }
