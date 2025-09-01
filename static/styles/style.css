@@ -381,6 +381,24 @@
             margin-bottom: 26px;
         }
 
+        .collapse-button {
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin-right: 14px;
+            margin-left: 4px;
+            padding-top: 4px;
+            font-size: 16px;
+            line-height: 12px;
+        }
+
         :target::before {
             content: "";
             display: block;
@@ -400,7 +418,7 @@
 
         #search_container {
             position: relative;
-            display: inline-block;
+            display: flex;
             width: 100%;
         }
 

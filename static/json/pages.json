@@ -32,6 +32,7 @@
       },
       {
         "is_have_search": true,
+        "is_have_collapse_button": true,
         "search_label": "Поиск по предысториям..."
       },
       {
@@ -1148,8 +1149,9 @@
     "sections": [
       {
         "is_have_search": true,
+        "is_have_collapse_button": true,
         "search_label": "Поиск по врагам..."
-      },
+      },      
       {
         "isExpandablePanel": true,
         "key": "",

@@ -34,7 +34,7 @@ export function loadPage(path) {
             const secDiv = document.createElement("div");
 
             if (section.is_have_search) {
-                addSearchField(secDiv, section.search_label);
+                addSearchField(secDiv, section.search_label, section.is_have_collapse_button);
             } else {
                 if (section.isExpandablePanel) {
                     secDiv.classList.add("expandable-panel");
@@ -70,29 +70,36 @@ export function loadPage(path) {
         
         header.addEventListener('click', function() {
 
-            if (content.classList.contains('open')) {
-                content.style.height = content.scrollHeight + 'px';
-                requestAnimationFrame(() => {
-                    content.style.height = '0px';
-                });
-                content.classList.remove('open');
-            } else {
-                content.classList.add('open');
-                content.style.height = content.scrollHeight + 'px';
-                content.addEventListener('transitionend', () => {
-                    content.style.height = 'auto';
-                }, { once: true });
-            }
+            ExpandablePanelClick(content,header,arrow);
 
-            header.classList.toggle('open');
-            arrow.classList.toggle('open');
+
         });
     });
 
     generatePageNavigation(pages, page);
 }
 
-function addSearchField(container, searchLabel) {
+function ExpandablePanelClick(content, header, arrow) {
+    if (content.classList.contains('open')) {
+        content.style.height = content.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+            content.style.height = '0px';
+        });
+        content.classList.remove('open');
+    } else {
+        content.classList.add('open');
+        content.style.height = content.scrollHeight + 'px';
+        content.addEventListener('transitionend', () => {
+            content.style.height = 'auto';
+        }, { once: true });
+    }
+
+    header.classList.toggle('open');
+    arrow.classList.toggle('open');
+}
+
+
+function addSearchField(container, searchLabel, isHaveCollapseButton) {
     const searchContainer = document.createElement('div');
     searchContainer.id = 'search_container';
     
@@ -109,6 +116,49 @@ function addSearchField(container, searchLabel) {
     clearBtn.innerHTML = '&times;';
 
     clearBtn.style.display = 'none';
+
+    if (isHaveCollapseButton) {
+        const collapseButton = document.createElement('button');
+        let isCooldown = false;
+        // collapseButton.textContent = "▼▼";
+        collapseButton.innerHTML = "<span class='arrow'>▼</span><span class='arrow'>▼</span>"
+        collapseButton.classList.add('collapse-button');
+        collapseButton.addEventListener('click', function() {
+
+
+        });
+
+        searchContainer.appendChild(collapseButton);
+
+        collapseButton.addEventListener('click', function() {
+
+            if (isCooldown) {
+                console.log(isCooldown);
+                return;
+            }
+
+            isCooldown = true;
+
+            const arrows = collapseButton.querySelectorAll('.arrow');
+            arrows.forEach(arrow => {
+                arrow.classList.toggle('open');
+            });
+
+            const panels = document.querySelectorAll('.expandable-panel');
+            panels.forEach(panel => {
+                const header = panel.querySelector('.panel-header');
+                const content = panel.querySelector('.panel-content');
+                const arrow = panel.querySelector('.arrow');     
+                
+                ExpandablePanelClick(content,header,arrow);
+            });
+
+            setTimeout(() => {
+                isCooldown = false;
+                console.log(isCooldown);
+            }, 500);
+        });
+    }
 
     searchContainer.appendChild(clearBtn);
 
