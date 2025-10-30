@@ -86,6 +86,11 @@ body.no-scroll {
     display: none;
 }
 
+.top-bar-button {
+    cursor: pointer;
+    width: 42px;
+}
+
 .logo {
     height: 42px; 
     margin-right: auto; 
