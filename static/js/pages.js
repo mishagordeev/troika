@@ -217,10 +217,10 @@ function filterContent(query) {
 
     if (foundCount === 0) {
         imageNotFound.style.display = 'block';  
-        collapseButton.style.display = 'none';
+        if (collapseButton !== null) collapseButton.style.display = 'none';
     } else {
         imageNotFound.style.display = 'none';  
-        collapseButton.style.display = 'flex';
+        if (collapseButton !== null) collapseButton.style.display = 'flex';
     }
 }
 
