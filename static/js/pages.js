@@ -98,7 +98,6 @@ function ExpandablePanelClick(content, header, arrow) {
     arrow.classList.toggle('open');
 }
 
-
 function addSearchField(container, searchLabel, isHaveCollapseButton) {
     const searchContainer = document.createElement('div');
     searchContainer.id = 'search_container';
@@ -110,6 +109,7 @@ function addSearchField(container, searchLabel, isHaveCollapseButton) {
 
     searchContainer.appendChild(input);
     container.prepend(searchContainer);
+    searchContainer.after(addNotFoundImagePlaceholder());
 
     const clearBtn = document.createElement('span');
     clearBtn.classList.add('clear-btn');
@@ -175,8 +175,25 @@ function addSearchField(container, searchLabel, isHaveCollapseButton) {
     });
 }
 
+function preloadImage(url) {
+    const img = new Image();
+    img.src = url;
+    return img;
+}
+
+function addNotFoundImagePlaceholder() {
+    const image = preloadImage('../static/images/not_found.svg');
+    image.style.display = 'none';
+    image.id = 'image-not-found';
+    const imagePlaceholder = document.createElement('div');
+    imagePlaceholder.appendChild(image);
+    return imagePlaceholder;
+}
+
 function filterContent(query) {
     const sections = document.querySelectorAll('#content h2');
+    let foundCount = 0;
+
     sections.forEach(h2 => {
         if (!h2.classList.contains('page-search-ignored')) {
             const section = h2.closest('.section') || h2.closest('.expandable-panel');
@@ -185,6 +202,7 @@ function filterContent(query) {
                 if (section.classList.contains('expandable-panel')) {
                     section.style.marginBottom = '15px';
                 }
+                foundCount++;
             } else {
                 section.style.display = 'none';
                 if (section.classList.contains('expandable-panel')) {
@@ -193,6 +211,14 @@ function filterContent(query) {
             }
         }
     });
+
+    const imageNotFound = document.getElementById('image-not-found');
+
+    if (foundCount === 0) {
+        imageNotFound.style.display = 'block';  
+    } else {
+        imageNotFound.style.display = 'none';  
+    }
 }
 
 export function navigateTo(path) {
