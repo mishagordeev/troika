@@ -74,6 +74,17 @@ body.no-scroll {
     flex-direction: row;
 }
 
+.page-footer {
+    background-color: yellow;
+    padding: 1em;
+    flex-shrink: 0;
+    margin-top: 16px;
+}
+
+.page-footer p {
+    margin-bottom: 8px;
+}
+
 .menu-btn {
     background: none;
     border: 1px;
@@ -154,12 +165,15 @@ em b {
     flex-direction: column;
     justify-content: flex-start;
     gap: 16px;
+    flex: 1 0 auto;
     
 }
 
 .page {
-    position: relative;
-    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    height: calc(100vh - 90px);
 }
 
 .navigation-button {
@@ -690,6 +704,10 @@ z-index: 10;
             table.random-spells td:nth-child(4), 
             table.random-spells th:nth-child(4) {
                 width: 50%;
+            }
+
+            .page-footer {
+                margin-left: 250px
             }
         }
         
