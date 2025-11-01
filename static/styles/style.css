@@ -99,7 +99,8 @@ body.no-scroll {
 
 .top-bar-button {
     cursor: pointer;
-    width: 42px;
+    height: 42px;
+}
 }
 
 .logo {
