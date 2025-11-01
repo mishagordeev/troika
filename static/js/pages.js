@@ -213,11 +213,14 @@ function filterContent(query) {
     });
 
     const imageNotFound = document.getElementById('image-not-found');
+    const collapseButton = document.querySelector('.collapse-button');
 
     if (foundCount === 0) {
         imageNotFound.style.display = 'block';  
+        collapseButton.style.display = 'none';
     } else {
         imageNotFound.style.display = 'none';  
+        collapseButton.style.display = 'flex';
     }
 }
 
