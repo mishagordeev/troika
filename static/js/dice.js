@@ -193,7 +193,7 @@ function createSingleDice() {
       if (index > -1) {
         dices.splice(index, 1)
       }
-    }, 3500) 
+    }, 7000) 
   })
 }
 
