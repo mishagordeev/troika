@@ -643,6 +643,11 @@ z-index: 10;
     .clear-btn {
         right: 62px;
     }
+
+    #image-not-found {
+        width: calc(100vw - 40px)
+    }
+
 /* 
     .side-panel {
         width: 300px;
@@ -709,6 +714,10 @@ z-index: 10;
 
             .page-footer {
                 margin-left: 250px
+            }
+
+            #image-not-found {
+                min-width: 600px;
             }
         }
         
