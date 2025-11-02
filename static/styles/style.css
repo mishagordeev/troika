@@ -101,7 +101,6 @@ body.no-scroll {
     cursor: pointer;
     height: 42px;
 }
-}
 
 .logo {
     height: 42px; 
@@ -512,7 +511,6 @@ transition: opacity 0.3s ease;
 z-index: 10;
 }
 
-/* Панель */
 .side-panel {
   position: fixed;
   /* right: 20px; */
@@ -526,7 +524,6 @@ z-index: 10;
   z-index: 11;
 }
 
-/* Кнопка закрытия */
 .close-btn {
   position: absolute;
   top: 10px;
@@ -537,14 +534,13 @@ z-index: 10;
   cursor: pointer;
 }
 
-/* Когда панель активна */
 .overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
 .side-panel.active {
-  bottom: 0px; /* Панель опускается сверху */
+  bottom: 0px;
 }
 
 .side-panel  p:last-child {
@@ -647,77 +643,61 @@ z-index: 10;
     #image-not-found {
         width: calc(100vw - 40px)
     }
-
-/* 
-    .side-panel {
-        width: 300px;
-        left: 0;
-        right: 0;
-        bottom: -100%;
-        top: auto;
-        border-radius: 20px 20px 0 0;
-        transition: bottom 0.4s ease;
-    }
-
-    .side-panel.active {
-        bottom: 0; 
-    } */
-
 }
 
-        /* Desktop */
-        @media (min-width: 769px) {
-            .side-menu {
-                transform: translateX(0);
-            }
+/* Desktop */
+@media (min-width: 769px) {
+    .side-menu {
+        transform: translateX(0);
+    }
 
-            #navigation-buttons-container {
-                flex-direction: row;
-                justify-content: space-between;
-            }
+    #navigation-buttons-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
-            .content {
-                margin-bottom: 24px;
-            }
+    .content {
+        margin-bottom: 24px;
+    }
 
-            .mobile {
-                display: none;
-            }
+    .mobile {
+        display: none;
+    }
 
-            
-            .mobile-table {
-                display: none;
-            }
+    
+    .mobile-table {
+        display: none;
+    }
 
-            .desktop {
-                display: block;
-            }
+    .desktop {
+        display: block;
+    }
 
-            table {
-                font-size: 18px;
-            }
+    table {
+        font-size: 18px;
+    }
 
-            table.random-spells td:nth-child(1), 
-            table.random-spells th:nth-child(1),
-            table.random-spells td:nth-child(3), 
-            table.random-spells th:nth-child(3) {
-                max-width: 46px;
-                text-align: center;
-            }
+    table.random-spells td:nth-child(1), 
+    table.random-spells th:nth-child(1),
+    table.random-spells td:nth-child(3), 
+    table.random-spells th:nth-child(3) {
+        max-width: 46px;
+        text-align: center;
+    }
 
-            table.random-spells td:nth-child(2), 
-            table.random-spells th:nth-child(2),
-            table.random-spells td:nth-child(4), 
-            table.random-spells th:nth-child(4) {
-                width: 50%;
-            }
+    table.random-spells td:nth-child(2), 
+    table.random-spells th:nth-child(2),
+    table.random-spells td:nth-child(4), 
+    table.random-spells th:nth-child(4) {
+        width: 50%;
+    }
 
-            .page-footer {
-                margin-left: 250px
-            }
+    .page-footer {
+        margin-left: 250px
+    }
 
-            #image-not-found {
-                min-width: 600px;
-            }
-        }
+    #image-not-found {
+        min-width: 600px;
+    }
+}
         
