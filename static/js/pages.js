@@ -214,6 +214,7 @@ function filterContent(query) {
 
     const imageNotFound = document.getElementById('image-not-found');
     const collapseButton = document.querySelector('.collapse-button');
+    const clearButton = document.querySelector('.clear-btn');
 
     if (foundCount === 0) {
         imageNotFound.style.display = 'block';  
@@ -222,6 +223,17 @@ function filterContent(query) {
         imageNotFound.style.display = 'none';  
         if (collapseButton !== null) collapseButton.style.display = 'flex';
     }
+
+    if (collapseButton === null) {
+        clearButton.style.right = '14px';
+    } else {
+        if (collapseButton.style.display == 'none') {
+            clearButton.style.right = '14px';
+        } else {
+            clearButton.style.right = '64px';
+        }
+    }
+
 }
 
 export function navigateTo(path) {
