@@ -1,5 +1,5 @@
 import { buildNavigationMenu } from "./navigation.js";
-import { loadPages, loadPage, navigateTo, getPages } from "./pages.js";
+import { loadPages, loadPage, navigateTo, getPages, loadFooter } from "./pages.js";
 import { initMobileView } from './mobile.js';
 
 async function initApp() {
@@ -8,6 +8,7 @@ async function initApp() {
 
     buildNavigationMenu(pages,navigateTo);
     initMobileView();
+    loadFooter();
 
     let initialPath = window.location.pathname;
     let page = pages.find((p) => p.path === initialPath);

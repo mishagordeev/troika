@@ -79,6 +79,13 @@ export function loadPage(path) {
     generatePageNavigation(pages, page);
 }
 
+export function loadFooter() {
+    const footer = document.querySelector('.page-footer');
+    footer.innerHTML = `<p>© 2025 WishPort</p>
+            <p>Сайт является независимым продуктом издательства WishPort и не связан с Melsonian Arts Council.</p>
+            <p style="margin-block-end: 0px;">Разработка сайта – Миша Гордеев</p>`
+}
+
 function ExpandablePanelClick(content, header, arrow) {
     if (content.classList.contains('open')) {
         content.style.height = content.scrollHeight + 'px';
