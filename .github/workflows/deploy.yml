@@ -1,0 +1,11 @@
+name: Test Secrets
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Host: ${{ secrets.SWEB_HOST }}"
+          echo "User: ${{ secrets.SWEB_USER }}"
+          echo "Path: ${{ secrets.SWEB_PATH }}"
+          echo "Key exists: ${{ secrets.SWEB_SSH_KEY != '' }}"
