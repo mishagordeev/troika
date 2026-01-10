@@ -1,11 +1,31 @@
-name: Test Secrets
-on: push
+name: Deploy to Sweb
+
+on:
+  push:
+    branches: [main]
+
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
+    
     steps:
-      - run: |
-          echo "Host: ${{ secrets.SWEB_HOST }}"
-          echo "User: ${{ secrets.SWEB_USER }}"
-          echo "Path: ${{ secrets.SWEB_PATH }}"
-          echo "Key exists: ${{ secrets.SWEB_SSH_KEY != '' }}"
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        # Используем секрет SWEB_SSH_KEY
+        echo "${{ secrets.SWEB_SSH_KEY }}" > ~/.ssh/deploy_key
+        chmod 600 ~/.ssh/deploy_key
+        
+        # Используем секрет SWEB_HOST
+        ssh-keyscan ${{ secrets.SWEB_HOST }} >> ~/.ssh/known_hosts
+        
+    - name: Deploy files
+      run: |
+        # Используем ВСЕ секреты
+        rsync -avz \
+          -e "ssh -i ~/.ssh/deploy_key" \
+          ./ \
+          ${{ secrets.SWEB_USER }}@${{ secrets.SWEB_HOST }}:${{ secrets.SWEB_PATH }}
